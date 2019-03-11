@@ -14,7 +14,7 @@ class Navbar extends Component {
 
       <nav className="navbar navbar-light bg-light row">
         {topics.map(topic => {
-          return <button className="btn btn-sm btn-outline-secondary col-md-4"
+          return <button className="btn btn-sm btn-outline-secondary col-md-3"
             key={topic.slug}>
             <Link to={`/${topic.slug}`}>{topic.slug}</Link>
                  </button>

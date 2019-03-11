@@ -15,22 +15,29 @@ class Article extends Component {
       <div class="Content">
         <Fragment>
         <h2>{article.title}</h2>
-        <span><button>Upvote</button></span>
-        <span><button>Downvote</button></span>
+        <span><button className="btn btn-outline-success m-2">Upvote</button></span>
+        <span><button className="btn btn-outline-danger m-2">Downvote</button></span>
         <h4>Created by: {article.author}</h4>
         <h4>Votes: {article.votes}</h4>
         
         <p>{article.body}</p>
-        <ul>
+        <div>
           { comments.map(comment => {
-            return <Fragment><li key={comment.comment_id}>{comment.body}</li>
-             <span><button>Upvote</button><button>Downvote</button>Votes: {comment.votes}</span>
-            <span>Votes: {comment.votes}</span>
-            <span>Created: {comment.created_at}</span>
-            <span>Author: {comment.author}</span>
+            return <Fragment>
+              <div className="card mb-4">
+              <div className="card-body">
+              <p key={comment.comment_id}>{comment.body}</p>
+             <span><button className="btn btn-outline-success m-2">Upvote</button>
+             <button className="btn btn-outline-danger m-2">Downvote</button> Votes: {comment.votes}</span>
+            <div className="row mb-4">
+            <div className="col-md-6">Created: {comment.created_at}</div>
+            <div className="col-md-6">Author: {comment.author}</div>
+            </div>
+            </div>
+            </div>
        </Fragment>
        })}
-       </ul>
+       </div>
       </Fragment>
      </div>
    );
