@@ -18,6 +18,7 @@ class App extends Component {
           <Sidebar/>
       <Router className="Contents">
           <Articles path="/"/>
+          <Articles path="/:topic"/>
           <Article path="/articles/:article_id"/>
           <User path="/users/:username"/>
       </Router>
