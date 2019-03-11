@@ -16,6 +16,7 @@ class Articles extends Component {
     <div>
       <ul>
        { articles.map(article => {
+    
         return  <Fragment> 
             <li key={article.article_id}>
             <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>

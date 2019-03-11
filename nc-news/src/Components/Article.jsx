@@ -11,9 +11,12 @@ class Article extends Component {
 
     render() {
     const { article, comments } = this.state;
-    return (
+    return ( 
+     
       <div class="Content">
+         { console.log(article) }
         <Fragment>
+
         <h2>{article.title}</h2>
         <span><button className="btn btn-outline-success m-2">Upvote</button></span>
         <span><button className="btn btn-outline-danger m-2">Downvote</button></span>
@@ -29,9 +32,9 @@ class Article extends Component {
               <p key={comment.comment_id}>{comment.body}</p>
              <span><button className="btn btn-outline-success m-2">Upvote</button>
              <button className="btn btn-outline-danger m-2">Downvote</button> Votes: {comment.votes}</span>
-            <div className="row mb-4">
-            <div className="col-md-6">Created: {comment.created_at}</div>
-            <div className="col-md-6">Author: {comment.author}</div>
+            <div className="row mb-2 mt-2">
+            <div className="col-md-6 text-center">Created: {comment.created_at}</div>
+            <div className="col-md-6 text-center">Author: {comment.author}</div>
             </div>
             </div>
             </div>
