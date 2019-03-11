@@ -12,10 +12,11 @@ import User from './Components/User';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container">
+      
       <Header/>
       <Navbar/>
-          <Sidebar/>
+      <Sidebar/>
       <Router className="Contents">
           <Articles path="/"/>
           <Articles path="/:topic"/>
@@ -23,6 +24,7 @@ class App extends Component {
           <User path="/users/:username"/>
       </Router>
       <Footer/>
+      
       </div>
     );
   }

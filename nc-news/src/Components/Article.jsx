@@ -15,6 +15,8 @@ class Article extends Component {
       <div class="Content">
         <Fragment>
         <h2>{article.title}</h2>
+        <span><button>Upvote</button></span>
+        <span><button>Downvote</button></span>
         <h4>Created by: {article.author}</h4>
         <h4>Votes: {article.votes}</h4>
         
@@ -22,6 +24,7 @@ class Article extends Component {
         <ul>
           { comments.map(comment => {
             return <Fragment><li key={comment.comment_id}>{comment.body}</li>
+             <span><button>Upvote</button><button>Downvote</button>Votes: {comment.votes}</span>
             <span>Votes: {comment.votes}</span>
             <span>Created: {comment.created_at}</span>
             <span>Author: {comment.author}</span>

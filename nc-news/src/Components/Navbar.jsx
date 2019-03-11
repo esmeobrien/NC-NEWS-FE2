@@ -12,14 +12,14 @@ class Navbar extends Component {
     const { topics } = this.state;
     return (
 
-      <div className="navbar">
+      <nav className="navbar navbar-light bg-light row">
         {topics.map(topic => {
-          return <div 
+          return <button className="btn btn-sm btn-outline-secondary col-md-4"
             key={topic.slug}>
             <Link to={`/${topic.slug}`}>{topic.slug}</Link>
-                 </div>
+                 </button>
         })}
-      </div>
+      </nav>
     );
   }
 
