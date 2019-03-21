@@ -29,6 +29,7 @@ class Navbar extends Component {
     })
   }
 
+
   componentDidMount() {
     this.fetchTopics();
   }

@@ -18,8 +18,8 @@ class Article extends Component {
         <Fragment>
 
         <h2>{article.title}</h2>
-        <span><button className="btn btn-outline-success m-2">Upvote</button></span>
-        <span><button className="btn btn-outline-danger m-2">Downvote</button></span>
+        <span><button onClick={() => this.voteOnArticle(1)} className="btn btn-outline-success m-2">Upvote</button></span>
+        <span><button onClick={() => this.voteOnArticle(-1)} className="btn btn-outline-danger m-2">Downvote</button></span>
         <h4>Created by: {article.author}</h4>
         <h4>Votes: {article.votes}</h4>
         
@@ -52,6 +52,12 @@ class Article extends Component {
     })
   }
 
+  voteOnArticle = val => {
+    api.voteOnArticle(this.props.article_id, val).then((obj) => {
+      this.setState({ obj })
+    })
+  }
+
   fetchComments = () => {
     api.getArticleComments(this.props.article_id).then((comments) => {
       this.setState({ comments });
@@ -59,7 +65,7 @@ class Article extends Component {
   }
   
   componentDidMount() {
-    this.fetchArticle(this.props.article_id)
+    this.fetchArticle(this.props.article_id);
     this.fetchComments(this.props.comment_id);
   }
 

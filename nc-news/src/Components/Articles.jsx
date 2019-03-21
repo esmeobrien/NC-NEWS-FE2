@@ -35,10 +35,19 @@ componentDidMount() {
 }
 
 fetchArticles = () => {
-  api.getAllArticles(this.props.topic).then((articles) => {
+  let call;
+  if(this.props.topic === undefined){
+     call = api.getAllArticles;
+  }else{
+     call = api.getArticlesByTopic;
+  }
+  call(this.props.topic).then((articles) => {
     this.setState({ articles })
   })
 }
+
+
+
 componentDidUpdate(prevProps, prevState) {
   const {
     topic
