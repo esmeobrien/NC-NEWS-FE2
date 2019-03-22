@@ -22,7 +22,6 @@ class Article extends Component {
         <span><button onClick={() => this.voteOnArticle(-1)} className="btn btn-outline-danger m-2">Downvote</button></span>
         <h4>Created by: {article.author}</h4>
         <h4>Votes: {article.votes}</h4>
-        
         <p>{article.body}</p>
         <div>
           { comments.map(comment => {

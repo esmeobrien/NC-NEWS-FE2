@@ -5,14 +5,12 @@ export const getTopics = async () => {
 
 	const { data } = await axios.get(`${BASE_URL}/topics`);
 	return data;
-	
 	}
 	
-export const getAllArticles = async () => {
-
-		const { data } = await axios.get(`${BASE_URL}/articles`);
-		
-		return data.articles;
+	export const getAllArticles = async TOPIC => {
+		const URL = TOPIC ? `${BASE_URL}/topics/${TOPIC}/articles` : `${BASE_URL}/articles`
+		const { data } = await axios.get(URL);
+		return data.articles;	
 	}		
 
 	export const getArticlesByTopic = async article_topic => {
@@ -26,10 +24,10 @@ export const getAllArticles = async () => {
 export const getArticleById = async article_id => {
 
 		const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);
-		return data;
+		return data; 
 	  }
 
-	  export const voteOnArticle = async (article_id, val)  => {
+export const voteOnArticle = async (article_id, val)  => {
 		await axios.patch(`${BASE_URL}/articles/${article_id}`, {'inc_votes': val });
 	  }
 	  

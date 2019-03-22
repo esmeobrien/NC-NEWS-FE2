@@ -10,10 +10,14 @@ import Article from './Components/Article';
 import User from './Components/User';
 
 class App extends Component {
+  state = {
+    user: 'user_test'
+  }
   render() {
+    const {user} = this.state;
     return (
       <div className="App container">
-      <Header/>
+      <Header user={user}/>
       <Navbar/>
       <Sidebar/>
       <Router className="Contents">
