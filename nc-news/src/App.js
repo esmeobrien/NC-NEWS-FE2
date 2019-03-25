@@ -12,43 +12,31 @@ import Sidebar from "./Components/Sidebar";
 import Articles from "./Components/Articles";
 import Article from "./Components/Article";
 import User from "./Components/User";
+import AddArticle from "./Components/AddArticle";
 
 class App extends Component {
   state = {
-    user: "user_test"
+    user: "tickle122",
+    topics:["cooking","football","coding"]
   };
   render() {
     const {
       user
     } = this.state;
-    return ( <
-      div className = "App container" >
-      <
-      Header user = {
-        user
-      }
-      /> <
-      Navbar / >
-      <
-      Sidebar / >
-      <
-      Router className = "Contents" >
-      <
-      Articles path = "/" / >
-      <
-      Articles path = "/:topic" / >
-      <
-      Article user = {
-        this.state.user
-      }
-      path = "/articles/:article_id" / >
-      <
-      User path = "/users/:username" / >
-      <
-      /Router> <
-      Footer / >
-      <
-      /div>
+    return ( 
+    <div className = "App container" >
+      <Header user = {user}/>  
+      <Navbar / >
+      <Sidebar / >
+      <Router className = "Contents" >
+      <Articles path = "/" / >
+      <Articles path = "/:topic" / >
+      <AddArticle topics = {this.state.topics} path="/create"/>
+      <Article user = {this.state.user} path = "/articles/:article_id" / >
+      <User path = "/users/:username" / >
+      </Router>  
+      <Footer / >
+      </div>
     );
   }
 }

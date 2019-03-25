@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import * as api from "./Api";
 import AddComment from "./AddComment";
+import DeleteComment from "./DeleteComment";
 
 class Article extends Component {
   state = {
@@ -16,6 +17,10 @@ class Article extends Component {
       <div className="Content">
         <Fragment>
           <h2>{article.title}</h2>
+          {this.props.user.user_id === this.state.article.user_id}
+          <em>
+            <p>Created by: {article.author}</p>
+          </em>
           <span>
             <button
               onClick={() => this.voteOnArticle(1)}
@@ -36,6 +41,8 @@ class Article extends Component {
           <h4>Votes: {article.votes}</h4>
           <p>{article.body}</p>
           <AddComment
+            postNewComment={this.postNewComment}
+            fetchComments={this.fetchComments}
             user={this.props.user}
             article_id={this.props.article_id}
           />
@@ -47,10 +54,10 @@ class Article extends Component {
                     <div className="card-body">
                       <p key={comment.comment_id}>{comment.body}</p>
                       <span>
-                        <button className="btn btn-outline-success m-2">
+                        <button onClick={() => this.voteOnComment(comment.comment_id,1)} className="btn btn-outline-success m-2">
                           Upvote
                         </button>
-                        <button className="btn btn-outline-danger m-2">
+                        <button onClick={() => this.voteOnComment(comment.comment_id, -1)}  className="btn btn-outline-danger m-2">
                           Downvote
                         </button>{" "}
                         Votes: {comment.votes}
@@ -62,6 +69,8 @@ class Article extends Component {
                         <div className="col-md-6 text-center">
                           Author: {comment.author}
                         </div>
+                        <DeleteComment comment_id={comment.comment_id} article_id={this.props.article_id} fetchComments={this.fetchComments}></DeleteComment>
+                        {this.props.user.username === comment.author}
                       </div>
                     </div>
                   </div>
@@ -82,6 +91,7 @@ class Article extends Component {
 
   voteOnArticle = val => {
     api.voteOnArticle(this.props.article_id, val).then(obj => {
+      this.fetchArticle();
       this.setState({ obj });
     });
   };
@@ -89,6 +99,13 @@ class Article extends Component {
   fetchComments = () => {
     api.getArticleComments(this.props.article_id).then(comments => {
       this.setState({ comments });
+    });
+  };
+
+  voteOnComment = (comment_id, val) => {
+    api.voteOnComment(this.props.article_id, comment_id, val).then(obj => {
+      this.fetchComments();
+      this.setState({ obj });
     });
   };
 

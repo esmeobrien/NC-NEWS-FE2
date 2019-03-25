@@ -1,6 +1,3 @@
-header {
-	grid-area: Header;
-	display: flex;
-	justify-content: center;
-	background-color: rgb(104, 212, 207)
+#createTitle{
+	float:right;
 }

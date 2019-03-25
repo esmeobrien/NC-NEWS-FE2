@@ -31,6 +31,10 @@ export const voteOnArticle = async (article_id, val) => {
   await axios.patch(`${BASE_URL}/articles/${article_id}`, { inc_votes: val });
 };
 
+export const voteOnComment = async (article_id, comment_id, val) => {
+  await axios.patch(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`, { inc_votes: val });
+};
+
 export const getArticleComments = async article_id => {
   const { data } = await axios.get(
     `${BASE_URL}/articles/${article_id}/comments`
@@ -44,4 +48,26 @@ export const postComment = async (article_id, newComment) => {
     newComment
   );
   return data.comment;
+};
+
+export const postArticle = async (topic, newArticle) => {
+  const { data } = await axios.post(
+    `${BASE_URL}/topics/${topic}/articles`,
+    newArticle
+  );
+  return data.article;
+};
+
+export const deleteArticle = async (article_id) => {
+  const { data } = await axios.delete(
+    `${BASE_URL}/articles/${article_id}`
+  );
+  return data.article;
+};
+
+export const deleteComment = async (article_id,comment_id) => {
+  const { data } = await axios.delete(
+    `${BASE_URL}/articles/${article_id}/comments/${comment_id}`
+  );
+  return data.article;
 };

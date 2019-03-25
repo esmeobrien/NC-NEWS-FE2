@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import "./Articles.css";
 import { Link } from "@reach/router";
 import * as api from "./Api.jsx";
+import DeleteArticle from "./DeleteArticle";
 
 class Articles extends Component {
   state = {
@@ -15,14 +16,16 @@ class Articles extends Component {
         <ul>
           {articles.map(article => {
             return (
-              <Fragment>
+              <Fragment key={article.article_id}>
                 <li key={article.article_id}>
                   <Link to={`/articles/${article.article_id}`}>
                     {article.title}
                   </Link>
                 </li>
-                <span>Votes: {article.votes}</span>
+                <span>Votes: {article.votes}</span> <br />
                 <span>Created by: {article.author}</span>
+                <DeleteArticle articles={this.state.articles} fetchArticles={this.fetchArticles}
+            article_id={article.article_id}></DeleteArticle>
               </Fragment>
             );
           })}
