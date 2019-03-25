@@ -1,22 +1,22 @@
 import React, {
   Component
-} from 'react';
+} from "react";
 import {
   Router
-} from '@reach/router';
-import './App.css';
-import Header from './Components/Header.jsx';
-import Footer from './Components/Footer';
-import Navbar from './Components/Navbar';
-import Sidebar from './Components/Sidebar';
-import Articles from './Components/Articles';
-import Article from './Components/Article';
-import User from './Components/User';
+} from "@reach/router";
+import "./App.css";
+import Header from "./Components/Header.jsx";
+import Footer from "./Components/Footer";
+import Navbar from "./Components/Navbar";
+import Sidebar from "./Components/Sidebar";
+import Articles from "./Components/Articles";
+import Article from "./Components/Article";
+import User from "./Components/User";
 
 class App extends Component {
   state = {
-    user: 'user_test'
-  }
+    user: "user_test"
+  };
   render() {
     const {
       user
@@ -38,13 +38,15 @@ class App extends Component {
       <
       Articles path = "/:topic" / >
       <
-      Article path = "/articles/:article_id" / >
+      Article user = {
+        this.state.user
+      }
+      path = "/articles/:article_id" / >
       <
       User path = "/users/:username" / >
       <
       /Router> <
       Footer / >
-
       <
       /div>
     );

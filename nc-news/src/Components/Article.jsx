@@ -1,10 +1,13 @@
 import React, { Component, Fragment } from "react";
 import * as api from "./Api";
+import AddComment from "./AddComment";
 
 class Article extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
+    isLoaded: false,
+    isClicked: false
   };
 
   render() {
@@ -32,6 +35,10 @@ class Article extends Component {
           <h4>Created by: {article.author}</h4>
           <h4>Votes: {article.votes}</h4>
           <p>{article.body}</p>
+          <AddComment
+            user={this.props.user}
+            article_id={this.props.article_id}
+          />
           <div>
             {comments.map(comment => {
               return (
