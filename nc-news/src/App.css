@@ -1,13 +1,57 @@
-/* .App {
-  text-align: center;
-  display: grid;
-  height: 100vh;
-  grid-template-rows: 1fr 1fr 7fr 1fr;
-  grid-template-columns: 1fr 1fr 3fr 1fr;
-  grid-template-areas: 
-  'Header Header Header Header' 
-  'Navbar Navbar Navbar Navbar'
-  'Content Content Content Sidebar'
-  'Footer Footer Footer Footer';
+body {
+  background-color: rgb(163, 220, 253);
 }
- */
+
+a {
+  color: rgb(0, 41, 128);
+  font-family: Lobster;
+  
+}
+
+button a {
+  color: rgba(119, 128, 255, 0.904);
+  font-size: 18px;
+}
+
+.text-center {
+  font-size: 70px;
+  color:  rgb(253, 130, 130);
+  
+}
+
+li a {
+  color: rgb(0, 41, 128);
+  font-size: 20px
+}
+
+.navbar  {
+  background-color: rgba(0, 212, 212, 0) !important;
+}
+
+h4.logged {
+  color: rgb(0, 41, 128);
+  font-family: 'Lobster Two', cursive;
+  font-weight: bold;
+}
+
+span {
+  color: rgba(60, 108, 238, 0.904);
+  font-family: 'Boogaloo', cursive;
+  font-size: 18px;
+}
+
+button.btn-default {
+  font-size: 12px;
+  font-family: 'Lobster', cursive;
+  color: rgb(0, 41, 128);
+}
+
+.btn-default
+ 
+{
+ 
+background-color: rgb(255, 176, 176);
+ 
+border-color: rgb(255, 176, 176);
+ 
+}

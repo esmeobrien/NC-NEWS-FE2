@@ -15,7 +15,7 @@ class Navbar extends Component {
         {topics.map(topic => {
           return (
             <button
-              className="btn btn-sm btn-outline-secondary col-md-3"
+            className="btn btn-default"
               key={topic.slug}
             >
               <Link to={`/${topic.slug}`}>{topic.slug}</Link>

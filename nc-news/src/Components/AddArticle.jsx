@@ -5,8 +5,8 @@ import { navigate } from "@reach/router";
 class AddArticle extends Component {
   state = {
     title: "",
-	body: "",
-	username: "",
+	  body: "",
+	  username: "",
     isPosted: false,
     err: null
   };
