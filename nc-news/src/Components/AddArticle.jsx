@@ -45,7 +45,7 @@ class AddArticle extends Component {
             onChange={this.handleChange}
           /> <br />
           <br />
-          <button>Submit Article</button>
+          <button className="btn btn-default">Submit Article</button>
         </form>
       </div>
     );

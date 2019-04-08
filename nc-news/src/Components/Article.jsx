@@ -24,7 +24,7 @@ class Article extends Component {
           <span>
             <button
               onClick={() => this.voteOnArticle(1)}
-              className="btn btn-outline-success m-2"
+              className="btn btn-default"
             >
               Upvote
             </button>
@@ -32,7 +32,7 @@ class Article extends Component {
           <span>
             <button
               onClick={() => this.voteOnArticle(-1)}
-              className="btn btn-outline-danger m-2"
+              className="btn btn-default"
             >
               Downvote
             </button>
@@ -54,10 +54,10 @@ class Article extends Component {
                     <div className="card-body">
                       <p key={comment.comment_id}>{comment.body}</p>
                       <span>
-                        <button onClick={() => this.voteOnComment(comment.comment_id,1)} className="btn btn-outline-success m-2">
+                        <button onClick={() => this.voteOnComment(comment.comment_id,1)} className="btn btn-default">
                           Upvote
                         </button>
-                        <button onClick={() => this.voteOnComment(comment.comment_id, -1)}  className="btn btn-outline-danger m-2">
+                        <button onClick={() => this.voteOnComment(comment.comment_id, -1)}  className="btn btn-default">
                           Downvote
                         </button>{" "}
                         Votes: {comment.votes}

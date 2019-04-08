@@ -5,7 +5,7 @@ class DeleteArticle extends Component {
   render() {
     return (
       <div>
-          <button className="btn-default" onClick={this.handleSubmit}>Delete Article</button>
+          <button className="btn btn-default" onClick={this.handleSubmit}>Delete Article</button>
       </div>
     );
   }
