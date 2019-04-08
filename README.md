@@ -4,7 +4,7 @@ This is a reddit inspired news forum in which users are able to interact with us
 ​
 The back end is hosted at https://my-nc-news.herokuapp.com/api, with a GitHub repo at https://github.com/esmeobrien/my-nc-knews.
 
-#User Actions
+## User Actions
 
 Users are able to perform the following actions:
 
@@ -13,7 +13,7 @@ Users are able to perform the following actions:
 - vote on comments and articles
 - delete articles and comments created by the user themselves
 
-#Usage Instructions
+## Usage Instructions
 
 - Clone and download the repo, and navigate into the created folder.
 
@@ -25,7 +25,7 @@ Users are able to perform the following actions:
 
 - This will be in a logged in format already.
 
-#Dependencies
+## Dependencies
 
 - @reach/router : 1.2.1
 - axios : 0.18.0
